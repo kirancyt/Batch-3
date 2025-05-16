@@ -1,0 +1,35 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load data
+df = pd.read_csv("intelligent_chatbot_customer_support (1).csv")
+
+# Convert date fields
+df['Date_Created'] = pd.to_datetime(df['Date_Created'], errors='coerce')
+df['Date_Resolved'] = pd.to_datetime(df['Date_Resolved'], errors='coerce')
+
+# Fill missing values for visualization
+df['Satisfaction_Rating'] = df['Satisfaction_Rating'].fillna(0)
+
+# Compare average response time: Bot vs Human
+df['Automation_Handled'] = df['Automation_Handled'].map({'Yes': 'Bot', 'No': 'Human'})
+avg_response = df.groupby('Automation_Handled')['Response_Time(mins)'].mean()
+
+# Plot average response time
+avg_response.plot(kind='bar', title='Avg Response Time: Bot vs Human', ylabel='Minutes', xlabel='Handler', colormap='viridis')
+plt.tight_layout()
+plt.show()
+
+# Compare average satisfaction rating
+avg_rating = df.groupby('Automation_Handled')['Satisfaction_Rating'].mean()
+avg_rating.plot(kind='bar', title='Avg Satisfaction Rating: Bot vs Human', ylabel='Rating (out of 5)', colormap='plasma')
+plt.tight_layout()
+plt.show()
+
+# Count of issues handled by type
+sns.countplot(data=df, x='Issue_Type', hue='Automation_Handled')
+plt.title("Issue Types Handled: Bot vs Human")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
