@@ -1,0 +1,73 @@
+import pandas as pd
+
+# Define the data
+data = {
+    "Feature": [
+        "24/7 Availability",
+        "Natural Language Support",
+        "Multi-channel Support",
+        "Issue Escalation",
+        "Analytics & Reporting",
+        "Personalized Responses",
+        "Live Chat Integration",
+        "Context Awareness",
+        "Multilingual Capabilities",
+        "User Feedback Collection",
+        "Security & Privacy",
+        "Bot Training Interface",
+        "Knowledge Base Integration",
+        "Intent Recognition",
+        "Quick Response Time"
+    ],
+    "Description": [
+        "Chatbot operates round-the-clock",
+        "Understands and responds in human-like language",
+        "Works across web, mobile, and social platforms",
+        "Routes complex issues to human agents",
+        "Tracks user queries, resolution times, etc.",
+        "Tailors replies based on user history and profile",
+        "Allows seamless switch to live agent",
+        "Remembers previous interactions for context",
+        "Communicates in multiple languages",
+        "Collects user satisfaction data and feedback",
+        "Ensures data protection and compliance",
+        "Lets teams train/update bot without coding",
+        "Pulls answers from existing knowledge base",
+        "Understands the purpose behind user queries",
+        "Minimizes response delay for better UX"
+    ],
+    "Benefit": [
+        "Increases customer satisfaction",
+        "Improves user engagement",
+        "Expands reach and convenience",
+        "Ensures high-quality service",
+        "Helps optimize service and train the bot",
+        "Boosts relevance and engagement",
+        "Improves customer support quality",
+        "Enhances personalization",
+        "Broadens global usability",
+        "Drives improvement and trust",
+        "Builds user trust and meets regulations",
+        "Empowers non-tech staff",
+        "Improves accuracy of answers",
+        "Improves intent routing and task success",
+        "Improves user retention and experience"
+    ],
+    "Priority": [
+        "High", "High", "Medium", "High", "Medium",
+        "Medium", "High", "Medium", "Low", "Low",
+        "High", "Medium", "Medium", "High", "High"
+    ],
+    "Category": [
+        "Availability", "AI/Language", "Integration", "Support", "Analytics",
+        "Personalization", "Support", "AI/Memory", "AI/Language", "Analytics",
+        "Security", "Training", "Knowledge", "AI/Language", "Performance"
+    ]
+}
+
+# Create the DataFrame and save as CSV
+df = pd.DataFrame(data)
+df.to_csv("intelligent_chatbot_features_15_rows.csv", index=False)
+
+# Optional: print confirmation
+print("CSV file saved as 'intelligent_chatbot_features_15_rows.csv'")
